@@ -6,7 +6,7 @@ A cutting-edge AI-powered interview platform that conducts technical interviews,
 
 ## 🚀 Live Demo
 
-**[View Live Demo](https://ai-interviewer-pro.vercel.app)**
+**[View Live Demo](https://ai-interviewer-rtpq.vercel.app/)**
 
 *Note: The demo requires camera and microphone permissions for the full interview experience.*
 
