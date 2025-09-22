@@ -63,7 +63,7 @@ A cutting-edge AI-powered interview platform that conducts technical interviews,
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/ai-interviewer-pro.git
+git clone https://github.com/LEKKALAGANESH/AI-Interviewer.git
 cd ai-interviewer-pro
 ```
 
