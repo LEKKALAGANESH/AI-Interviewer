@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import FeedbackCard from "./FeedbackCard";
 
+const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000";
+
 interface Answer {
     question: string;
     answer: string;
@@ -72,7 +74,7 @@ const Interview: React.FC = () => {
 
     // ---------------- Fetch Questions ----------------
     useEffect(() => {
-        fetch("/api/questions")
+        fetch(`${API_BASE}/questions`)
             .then((res) => res.json())
             .then((data) => setQuestions(data.questions))
             .catch((err) => console.error(err));
@@ -95,7 +97,7 @@ const Interview: React.FC = () => {
     const handleSubmit = async (allAnswers: Answer[]) => {
         stopListening();
         try {
-            const res = await fetch("/api/analyze", {
+            const res = await fetch(`${API_BASE}/analyze`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ answers: allAnswers })
