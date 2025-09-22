@@ -72,7 +72,7 @@ const Interview: React.FC = () => {
 
     // ---------------- Fetch Questions ----------------
     useEffect(() => {
-        fetch("http://localhost:4000/api/questions")
+        fetch("/api/questions")
             .then((res) => res.json())
             .then((data) => setQuestions(data.questions))
             .catch((err) => console.error(err));
@@ -95,7 +95,7 @@ const Interview: React.FC = () => {
     const handleSubmit = async (allAnswers: Answer[]) => {
         stopListening();
         try {
-            const res = await fetch("http://localhost:4000/api/analyze", {
+            const res = await fetch("/api/analyze", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ answers: allAnswers })
