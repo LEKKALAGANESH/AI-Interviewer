@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import FeedbackCard from "./FeedbackCard";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000";
-
 interface Answer {
     question: string;
     answer: string;
@@ -74,7 +72,7 @@ const Interview: React.FC = () => {
 
     // ---------------- Fetch Questions ----------------
     useEffect(() => {
-        fetch(`${API_BASE}/questions`)
+        fetch("http://localhost:4000/api/questions")
             .then((res) => res.json())
             .then((data) => setQuestions(data.questions))
             .catch((err) => console.error(err));
@@ -97,12 +95,13 @@ const Interview: React.FC = () => {
     const handleSubmit = async (allAnswers: Answer[]) => {
         stopListening();
         try {
-            const res = await fetch(`${API_BASE}/analyze`, {
+            const res = await fetch("http://localhost:4000/api/analyze", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ answers: allAnswers })
             });
             const data = await res.json();
+            // console.log(data);
             const parsedAnalysis =
                 typeof data.analysis === "string" ? JSON.parse(data.analysis) : data.analysis;
             setAnalysis(parsedAnalysis);
@@ -132,7 +131,7 @@ const Interview: React.FC = () => {
                             onChange={(e) => setInput(e.target.value)}
                             placeholder="Type your answer or use microphone..."
                             className="w-full p-2 border rounded mb-2"
-                            rows={4}
+                            rows={6} cols={60}
                         />
 
                         {interim && <p className="text-gray-400 italic">{interim}</p>}

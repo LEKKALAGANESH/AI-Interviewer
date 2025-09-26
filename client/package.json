@@ -10,9 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.12.2",
+    "fs": "^0.0.1-security",
     "lucide-react": "^0.544.0",
+    "node-fetch": "^3.3.2",
+    "path": "^0.12.7",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "url": "^0.11.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",

@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+.container {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 10px auto;
+}
